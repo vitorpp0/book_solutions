@@ -1,0 +1,6 @@
+src/*/include
+src/*/Lib
+src/*/Scripts
+src/*/pyvenv.cfg
+
+
