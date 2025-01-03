@@ -1,2 +1,2 @@
 # book_solutions
-Solutions to the more question as possible from the books i'm reading
+Books I'm reading solutions in Julia or Python. 😁
