@@ -3,7 +3,4 @@ src/*/Lib
 src/*/Scripts
 src/*/pyvenv.cfg
 
-Manifest.toml
-Project.toml
-
-
+src/*/Manifest.toml
