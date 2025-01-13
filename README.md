@@ -7,4 +7,5 @@ Here you can checkout which book is being solved in which directory of ./src fol
 | Title | Edition | Directory | Authors |
 | ----------- | ----------- | ----------- | ----------- |
 | Reliability Evaluation of Engineering Systems - Concepts and Techniques | 2nd | re_ev_eng_sys | Roy Billinton and Ronald N. Allan |
+| Bayesian Statistics the fun way | 1st | bayes_fun | Will Kurt |
 
