@@ -1,5 +1,5 @@
 begin # Problem 1
-    # Ok, if the probability of getting one 20 is 1/20, then
+    # Ok, if the probability of getting one 20 is 1/20, thenz
     println("P(X=(20, 20, 20)) = ", round(1/20^3, digits=4));
 end
 

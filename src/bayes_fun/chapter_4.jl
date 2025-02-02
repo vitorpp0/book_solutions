@@ -1,26 +1,28 @@
 import Distributions as distmod
 
-begin # Problem 1
-#=
-    We're interest in calculating likelihoods (P) about p, the probability 
-    of coin landing heads. Well, we know that P is a beta distribuion with α=4 and β=6.
-=#
-    local P::distmod.Beta = distmod.Beta(4, 6);
-    # So we calculate P(0.6; 4, 6) = acc
-    local acc::Float64 = 1-distmod.cdf(P, 0.6);
-    println("P(0.6; 4, 6) = ", round(acc, digits=4));
-end
-
 begin # Problem 2
-    #In a similar way, we want to calculate the cdf of acc = P(x∈[0.45, 0.55]; 9, 11)
-    local P::distmod.Beta = distmod.Beta(9, 11);
-    local acc::Float64 = distmod.cdf(P, 0.55)-distmod.cdf(P, 0.45);
-    println("P(x∈[0.45, 0.55]; 9, 11) = ", round(acc, digits=4));
+    #=
+        If there are aways 4 aces, then there is 4xC5,1 ways to choose one of the 5 pulls to get an ace.
+        Now for the last 3 cards, there are always 48 cards to choose in 3 positions where order actually matters,
+        so the number of possible events are 48^3. 
+        Is important to notice that the author had assumed that there is no difference between the 4 aces and
+        between the other cards either.
+    =#
+    println("P2 - With that said we can pull 4 aces in $(4*5*48^3) ways.");
 end
 
 begin # Problem 3
-    # Similarly with problem 2, we do
-    local P::distmod.Beta = distmod.Beta(109, 111);
-    local acc::Float64 = distmod.cdf(P, 0.55)-distmod.cdf(P, 0.45);
-    println("P(x∈[0.45, 0.55]; 109, 111) = ", round(acc, digits=4));
+    #=
+        If we're interest only in pulling an ace or not, than the probability of success in each pull
+        is of p=4/52, since there is replacement. Now we're able to calculate the probability as
+    =#
+    println("P3 - B(k=5;10,4/52) = ", distmod.pdf(distmod.Binomial(10,4/52),5));
+end
+
+begin # Problem 4
+    println("P3 - B(k≥2;n=7,p=1/5) = ", sum(distmod.pdf(distmod.Binomial(7,1/5),x) for x in 2:7));
+end
+
+begin # Problem 5
+    println("P3 - B(k≥2;n=25,p=1/10) = ", sum(distmod.pdf(distmod.Binomial(25,1/10),x) for x in 2:25));
 end
