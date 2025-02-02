@@ -36,18 +36,22 @@ end
 
 begin # Problem 3 
 
-    # To stablish load loss, the system must produce less than 80MW
-    # which happens when the number of defective generator is X > 1.
-    # So, the expected load loss for X=i can be calculated by 
-    # E(X=i|Bin(5, 0.005)) = P(X=i|Bin(5, 0.005))*min(20*(i-1), 80), then:
+    #= 
+        To stablish load loss, the system must produce less than 80MW
+        which happens when the number of defective generator is X > 1.
+        So, the expected load loss for X=i can be calculated by 
+        E(X=i|Bin(5, 0.005)) = P(X=i|Bin(5, 0.005))*min(20*(i-1), 80), then:
+    =#
     local Eₚ(p::Float64, n::Int64, min::Int64, power::Float64, load::Float64)::Float64 = sum([minimum([power*(i-min+1), load])*binomial(n, i)*p^i*(1-p)^(n-i) for i in min:n]);
     local Δtₚ(p::Float64, n::Int64, min::Int64)::Float64 = 365*24*sum([binomial(n, i)*p^i*(1-p)^(n-i) for i in min:n]);
 
     # Item a
     println("a - The expected loss is $(Eₚ(0.005, 5, 2, 20., 80.)) MW with a curtailment of $(Δtₚ(0.005, 5, 2)) h/year")
 
-    # Item b 
-    # We implement something similar to item a
+    #=
+        Item b 
+        We implement something similar to item a
+    =#
     println("b - The expected loss is $(Eₚ(0.015, 9, 2, 10., 80.)) MW with a curtailment of $(Δtₚ(0.015, 9, 2)) h/year")
 
 end
