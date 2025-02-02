@@ -1,23 +1,15 @@
 begin # Problem 1
     # First, we need to calculate the probability p of getting X>7
-    local n::Int64, total::Int64 = 0, 6^2;
-    for dice_1 in 1:6, dice_2 in 1:6
-        if dice_1+dice_2 > 7
-            n += 1;
-        end
-    end
-    println("P(X>7) = ", round(n/total, digits=4));
+    local n::Int64 = [i+j>7 for i in 1:6, j in 1:6] |> count; 
+    local total::Int64 = 6^2;
+    println("P1 - P(X>7) = ", round(n/total, digits=4));
 end
 
 begin # Problem 2
     # First, we need to calculate the probability p of getting X>7
-    local n::Int64, total::Int64 = 0, 6^3;
-    for dice_1 in 1:6, dice_2 in 1:6, dice_3 in 1:6
-        if dice_1+dice_2+dice_3 > 7
-            n += 1;
-        end
-    end
-    println("P(X>7) = ", round(n/total, digits=4));
+    local n::Int64 = [i+j+k>7 for i in 1:6, j in 1:6, k in 1:6] |> count; 
+    local total::Int64 = 6^3;
+    println("P2 - P(X>7) = ", round(n/total, digits=4));
 end
 
 begin # Problem 3
