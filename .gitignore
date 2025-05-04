@@ -1,6 +1,4 @@
-src/*/include
-src/*/Lib
-src/*/Scripts
-src/*/pyvenv.cfg
-
-src/*/Manifest.toml
+Manifest.toml
+.venv
+.vscode
+*.cmd
