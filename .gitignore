@@ -2,3 +2,5 @@ Manifest.toml
 .venv
 .vscode
 *.cmd
+.env
+data
